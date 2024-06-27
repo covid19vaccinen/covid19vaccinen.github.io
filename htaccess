@@ -173,9 +173,8 @@ Deny from all
 
 RewriteEngine on
 RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?addonhemsida.se [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?covid19vaccinen.se [NC]
 RewriteRule \.(jpg|ico|jpeg|png|gif|bmp)$ - [F,NC,L]
-
 SetEnvIfNoCase User-Agent "^Mozilla.*Indy" bad_bot
 SetEnvIfNoCase User-Agent "^Java.*" bad_bot
 SetEnvIfNoCase User-Agent "^libwww-perl.*" bad_bot
