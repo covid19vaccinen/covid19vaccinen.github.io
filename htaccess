@@ -3,7 +3,8 @@ order allow,deny
 deny from all
 satisfy all
 </files>
-
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
 # Block suspicious user agents and requests
 <IfModule mod_rewrite.c>
 RewriteCond %{HTTP_USER_AGENT} (libwww-perl|wget|python|nikto|curl|scan|java|winhttp|clshttp|loader) [NC,OR]
