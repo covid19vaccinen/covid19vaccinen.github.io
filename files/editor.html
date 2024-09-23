@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Security-Policy" content="
-default-src 'self' https://covid19vaccinen.se;
-base-uri 'self' https://covid19vaccinen.se;
-child-src 'self' https://covid19vaccinen.se;
-connect-src 'self' https://covid19vaccinen.se;
-font-src 'self' https://covid19vaccinen.se;
-form-action 'self' https://covid19vaccinen.se;
-frame-ancestors 'self' https://covid19vaccinen.se;
-frame-src 'self' https://covid19vaccinen.se;
-img-src 'self' https://covid19vaccinen.se;
-media-src 'self' https://covid19vaccinen.se;
-object-src 'self' https://covid19vaccinen.se;
-prefetch-src 'self' https://covid19vaccinen.se;
-script-src 'self' https://covid19vaccinen.se;
-style-src 'self' https://covid19vaccinen.se;
-worker-src 'self' https://covid19vaccinen.se;
+default-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+base-uri 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+child-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+connect-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+font-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+form-action 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+frame-ancestors 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+frame-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+img-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+media-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+object-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+prefetch-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+script-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+style-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
+worker-src 'self' https://covid19vaccinen.se https://covid19vaccinen.se/files;
 ">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
@@ -25,78 +25,10 @@ worker-src 'self' https://covid19vaccinen.se;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Artikel Redigerare</title>
 <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAARVBMVEUAAADlTUTkTUPlTUPkTETlTErlTETlTUPlTUPkTUTkTULkTUTkTUTkTkXlTUTjTELlTUTkTUPlTETlTUT3aF7tWE/zYli3in9XAAAAE3RSTlMAzeJCmgi/UhKyJ2H3jTIbaqV/tmvZ6gAAAQ1JREFUOMuVU9mSgzAMi5070O0h4P8/deO0YEK7ZVYz+AFpfCi2OSAO5iss8LfC+1WQ/EcBUw2BayA+cj+2BhdqyMIFJ9Ws8gW4yf+ULLFNSZQRsJoACL6mYDSwJLgDcTfcHbkQNlBxyP04j41cZgAjnOlRxhc/T5MoUJTzUpOgAghIevJPAVG+VKblVlwy0WbYlYGp5Vbw1SgS3gVIL9LG+rXiy8Y1rX1yESBiaI+zBBEzEXBrgkC9AItECgEYtMQbWgltUtE3qWNi+TimGgXprOkmNWpn9drfLH6o1cfHUsOK6eGwor3JiOz3dMxw/cI8EAbTrZw5rJwD4unSnq39t8M5OT3v/3G8p+f/C7l7H1EoVTVYAAAAAElFTkSuQmCC">
-<script src="parser.js" defer></script>
-<script src="purify.js" defer></script>
-<style>
-body{
-font-family: Arial, sans-serif;
-margin: 50px;
-}
-header{
-margin-bottom: 20px;
-text-align: center;
-}
-header a{
-margin: 0 15px;
-text-decoration: none;
-color: #333;
-}
-header a:hover{
-text-decoration: underline;
-}
-.container {
-display: flex;
-height: calc(100vh - 100px);
-}
-#editor{
-background-color: #eee;
-overflow-y: auto;
-margin-right: 1%;
-}
-#editor,
-#result{
-width: 49%;
-padding: 20px;
-box-sizing: border-box;
-border: none;
-outline: none;
-font-size: 18px;
-border-radius: 4px;
-}
-#result{
-background-color: #fff;
-overflow-y: auto;
-}
-input[type="text"]{
-width: calc(49%);
-border: 2px solid #333;
-border-radius: 4px;
-margin-bottom: 10px;
-padding: 10px;
-font-size: 18px;
-box-sizing: border-box;
-}
-hr{
-margin: 30px 0;
-}
-@media (max-width: 800px){
-.container{
-flex-direction: column;
-height: auto;
-}
-#editor,
-#result{
-width: 100%;
-margin-right: 0;
-min-height: 400px;
-}
-#editor{
-margin-bottom: 20px;
-}
-input[type="text"]{
-width: 100%;
-}}
-</style>
+<link rel="stylesheet" href="editor.css" type="text/css">
+<script src="parser.js" type="text/javascript" defer></script>
+<script src="purify.js" type="text/javascript" defer></script>
+<script src="functions.js" type="text/javascript" defer></script>
 </head>
 <body>
 <header>
@@ -116,85 +48,5 @@ width: 100%;
 <textarea id="editor" placeholder="Skriv din artikel här..."></textarea>
 <div id="result"></div>
 </div>
-<script>
-const editor = document.getElementById('editor');
-const result = document.getElementById('result');
-const fileNameInput = document.getElementById('fileNameInput');
-const shadowRoot = result.attachShadow({ mode: 'open' });
-editor.addEventListener('input', () => {
-const rawHTML = marked(editor.value);
-const cleanHTML = DOMPurify.sanitize(rawHTML);
-shadowRoot.innerHTML = '';
-const styleElement = document.createElement('style');
-styleElement.textContent = `
-:host div{
-font-family: "Arial", Courier, monospace;
-color: #222;
-}
-:host h1, :host h2, :host h3, :host h4, :host h5, :host h6 {
-color: #222;
-}
-:host p{
-line-height: 1.5;
-margin: 20px 0;
-}
-:host img{
-width: 100%;
-height: auto;
-margin: 20px 0;
-}
-`;
-const contentDiv = document.createElement('div');
-contentDiv.innerHTML = cleanHTML;
-shadowRoot.appendChild(styleElement);
-shadowRoot.appendChild(contentDiv);
-});
-function clearText(){
-editor.value = '';
-shadowRoot.innerHTML = '';
-}
-function copymdText(){
-const mdText = editor.value;
-if (mdText){
-navigator.clipboard.writeText(mdText).then(() => {
-alert("MD texten kopierad!");
-}).catch(err => {
-console.error("Fel vid kopiering: ", err);
-});
-} else {
-alert("Men? Det finns ju ingen text att kopiera!");
-}}
-function copyhtmlText(){
-const contentDiv = shadowRoot.querySelector('div');
-const cleanHTML = contentDiv ? contentDiv.innerHTML : '';
-if (cleanHTML) {
-navigator.clipboard.writeText(cleanHTML).then(() => {
-alert("HTML markup kopierad!");
-}).catch(err => {
-console.error("Fel vid kopiering: ", err);
-});
-} else {
-alert("Men? Det finns ju ingen HTML att kopiera!");
-}}
-function downloadmdFile(){
-const fileName = fileNameInput.value.trim();
-const mdText = editor.value;
-if (!fileName){
-alert("Namnet Saknas");
-return;
-}
-const specialChars = /[<>:"/\\|?*]/;
-if (specialChars.test(fileName)){
-alert("Namnet Har Spec Char");
-return;
-}
-const sanitizedFileName = fileName.replace(/\s+/g, '-');
-const blob = new Blob([mdText], { type: 'text/markdown' });
-const downloadLink = document.createElement('a');
-downloadLink.href = URL.createObjectURL(blob);
-downloadLink.download = `${sanitizedFileName}.md`;
-downloadLink.click();
-}
-</script>
 </body>
 </html>
